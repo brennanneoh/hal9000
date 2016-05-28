@@ -3,8 +3,9 @@
   "version": "0.0.1",
   "description": "Just what do you think you're doing, Dave?",
   "main": "app.js",
+  "repository": "https://github.com/brennanneoh/hal9000",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "./node_modules/jasmine/bin/jasmine.js"
   },
   "author": "Brennan Neoh",
   "license": "ISC",
@@ -14,6 +15,7 @@
     "node-telegram-bot": "^0.1.9"
   },
   "devDependencies": {
-    "jasmine": "^2.4.1"
+    "jasmine": "^2.4.1",
+    "jasmine-console-reporter": "^1.2.6"
   }
 }
