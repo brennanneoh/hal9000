@@ -1,0 +1,14 @@
+{
+  "name": "hal9000",
+  "version": "0.0.1",
+  "description": "",
+  "main": "main.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Brennan Neoh",
+  "license": "ISC",
+  "dependencies": {
+    "node-telegram-bot": "^0.1.9"
+  }
+}
