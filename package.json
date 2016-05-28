@@ -1,14 +1,19 @@
 {
   "name": "hal9000",
   "version": "0.0.1",
-  "description": "",
-  "main": "main.js",
+  "description": "Just what do you think you're doing, Dave?",
+  "main": "app.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "Brennan Neoh",
   "license": "ISC",
   "dependencies": {
+    "dotenv": "^2.0.0",
+    "lodash": "^4.13.1",
     "node-telegram-bot": "^0.1.9"
+  },
+  "devDependencies": {
+    "jasmine": "^2.4.1"
   }
 }
