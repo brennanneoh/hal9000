@@ -1,6 +1,6 @@
 describe('Hal9000', function() {
   var Hal9000 = require('../../lib/Hal9000'),
-      Dictionaries = require('../../config/dictionaries'),
+      Dictionaries = require('../../config/Dictionaries'),
       _ = require('lodash'),
       message = '';
 
@@ -38,7 +38,7 @@ describe('Hal9000', function() {
       expect(Hal9000.multiReResponder(message)).toEqual(Dictionaries.multiRegex.dontKnowTalking.text);
 
       message = { text: 'What are you talking about, HAL?' }
-      expect(Hal9000.multiReResponder(message)).toEqual('');
+      expect(Hal9000.multiReResponder(message)).toEqual(undefined);
     });
   });
 });
