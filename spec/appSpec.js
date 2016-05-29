@@ -1,5 +1,5 @@
 describe('Hal9000', function() {
-  var Hal9000 = require('../App.js'),
+  var Hal9000 = require('../app.js'),
       _ = require('lodash'),
       message = '',
       dict = {
