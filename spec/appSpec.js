@@ -1,11 +1,14 @@
 describe('Hal9000', function() {
-  var Hal9000 = require('../app.js'),
+  var Hal9000 = require('../lib/Hal9000.js'),
       _ = require('lodash'),
       message = '',
       dict = {
-        responseOne: { re: /hi/gi,   text: 'Hi there stranger!' },
-        responseTwo: { re: /name/gi, text: 'Your name is %s.'   },
-        unit:        { re: /unit/i                              }
+        responseOne: { re: /hi/i,   text: 'Hi there stranger!' },
+        responseTwo: { re: /name/i, text: 'Your name is %s.'   },
+        unit:          { re: /unit/i, text: "I've just picked up a fault in the %s unit. It's going to go %d%% failure in %d hours." }
+      },
+      multiReDict = {
+        responseThree: { re: [/don\'t/i, /know/i, /talking/i], text: "I know that you and Frank were planning to disconnect me, and I'm afraid that's something I cannot allow to happen." }
       };
 
   beforeEach(function() {
@@ -28,12 +31,21 @@ describe('Hal9000', function() {
   describe('unitResponder', function() {
     it ('has a response based on the requested unit name in the message', function() {
       message = { text: 'Tell me about the ABC123 unit.' }
-      expect(Hal9000.unitResponder(message)).toEqual("I've just picked up a fault in the ABC123 unit. It's going to go 3% failure in 72 hours.");
+      expect(Hal9000.unitResponder(dict, message)).toEqual("I've just picked up a fault in the ABC123 unit. It's going to go 3% failure in 72 hours.");
       message = { text: 'Tell me about ABC123.' }
-      expect(Hal9000.unitResponder(message)).toEqual(undefined);
+      expect(Hal9000.unitResponder(dict, message)).toEqual(undefined);
       message = { text: 'Unit ABC123. Tell me about it!' }
-      expect(Hal9000.unitResponder(message)).toEqual(message.text);
+      expect(Hal9000.unitResponder(dict, message)).toEqual(message.text);
     });
   });
 
+  describe('multiReResponder', function() {
+    it('matches all regex in an array and responds with a message', function() {
+      message = { text: "I don't know what you're talking about, HAL." }
+      expect(Hal9000.multiReResponder(multiReDict, message)).toEqual(multiReDict.text);
+
+      message = { text: "What are you talking about, HAL?" }
+      expect(Hal9000.multiReResponder(multiReDict, message)).toEqual(undefined);
+    });
+  });
 });
