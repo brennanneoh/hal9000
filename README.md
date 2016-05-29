@@ -1,4 +1,5 @@
 # hal9000
+[![Build Status](https://travis-ci.org/brennanneoh/hal9000.svg?branch=master)](https://travis-ci.org/brennanneoh/hal9000)
 Yet another ~~IBM~~ HAL9000 bot.
 
 This is a project I created to tinker with the [Telegram Bot API](https://core.telegram.org/bots/api).
